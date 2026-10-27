@@ -4,15 +4,15 @@ A minimal, mobile-first Mafia game for 5-20 people sitting together and passing 
 
 ## Play
 
-1. Enter one unique player name per line. Choose the Mafia count (or auto), Doctor, Detective and discussion length.
+1. Enter one unique player name per line. Choose the Mafia count (or auto), Doctor, Detective and Cutie.
 2. Pass the phone to each named player. Reveal your own role, then hide before handing it over.
-3. Each night, every living player opens a private turn. Mafia vote for a target, Doctor protects, Detective investigates, and Town make a decoy selection.
+3. Each night, every living player opens a private turn. Mafia vote for a target, Doctor protects, Detective investigates, Cutie mutes one other player for the following day, and Town make a decoy selection.
 4. Discuss out loud. Pass the phone for private votes. The app resolves eliminations and checks victory automatically.
 5. At the end, review the game and rematch with the same players.
 
 ## House rules
 
-- Town wins at zero Mafia. Mafia wins when living Mafia equal or outnumber living Town, including Doctor and Detective.
+- Town wins at zero Mafia. Mafia wins when living Mafia equal or outnumber living Town, including Doctor, Detective and Cutie.
 - Mafia know their teammates and cannot target them. A unique top target is selected; a tied night target is chosen randomly.
 - Doctor may protect themself or the same player on consecutive nights. Night protection and kill resolve together, after all turns.
 - Detective checks one other living player: Mafia or not Mafia. The result is private and survives a tab lock or reload until the turn is completed.
@@ -26,11 +26,15 @@ One-phone app pattern reviewed: https://play.google.com/store/apps/details?id=co
 
 The tie, protection and secret-ballot rules above are this app's chosen variant. No assets or code were copied from these references.
 
+Cutie is a Town role based on the requested house rule. They choose one other living player each night. That player stays silent and cannot vote during the next day, including a runoff, but can still be voted out. Their night power is unaffected. The mute expires next night; repeat targets are allowed. A simultaneous night elimination does not undo the choice. Cutie is enabled by default and can be switched off in setup.
+
+There is no discussion timer or separate discussion screen. Talk as long as you like, then use the direct private-voting button on the morning screen. Existing saved games remain resumable without adding a new role midgame; start a new game to deal Cutie.
+
 ## Privacy and persistence
 
 Game progress, roles and votes stay in this browser's localStorage. No analytics or game-data requests are sent. The interface masks secrets on tab visibility changes, blur and page exit. This is a casual trust-based party game, not a tamper-proof system: browser developer tools can inspect the saved state, and screenshots cannot be prevented by a web page.
 
-Reload returns to a covered resume screen. Clearing site data removes progress. Discussion timers restart on reload. Network access is needed to initially load the page; offline reload is not guaranteed.
+Reload returns to a covered resume screen. Clearing site data removes progress. Network access is needed to initially load the page; offline reload is not guaranteed.
 
 ## Run locally
 
